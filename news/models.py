@@ -7,3 +7,11 @@ class News(models.Model):
     updated_at=models.DateTimeField(auto_now=True)
     photo=models.ImageField(upload_to='photos/%Y/%m/%d/')
     is_publiched=models.BooleanField(default=True)
+    
+    def __str__(self) -> str:
+        return self.title
+    
+    class Meta:
+        verbose_name = 'Новость'
+        verbose_name_plural =' Новости'
+        ordering = ['created_at']
